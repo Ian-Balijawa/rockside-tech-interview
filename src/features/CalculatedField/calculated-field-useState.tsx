@@ -21,28 +21,20 @@ export default function CalculatedFieldUseState() {
 			tenXTotal: data.get('tenXTotal'),
 		}
 		console.log(values)
-		console.log({
-			numSheep: data.get('numSheep'),
-			numGoats: data.get('numGoats'),
-			total: data.get('total'),
-			tenXTotal: data.get('tenXTotal'),
-		})
 
 		alert(JSON.stringify(values, null, 2))
 	}
 
 	const total = (sheep: number, goats: number) => sheep + goats
-
 	const tenX = (total: number) => total * 10
-
 	const toNumber = (value: string) => Number(value) || 0
 
 	return (
 		<Container component="main" maxWidth="xs">
 			<Typography component="h1" variant="h5" sx={{ textAlign: 'center' }}>
-				Calculated Fields
+				Calculated Fields With useState
 			</Typography>
-			<Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+			<Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
 				<Input
 					type="text"
 					name="numSheep"
@@ -62,8 +54,8 @@ export default function CalculatedFieldUseState() {
 					}}
 				/>
 
-				<Input type="text" name="total" label="total" value={total(numGoats, numSheep)} />
-				<Input type="text" name="tenXTotal" value={tenX(total(numSheep, numGoats))} label="10 Times Total" />
+				<Input type="text" name="total" label="Total animals" value={total(numGoats, numSheep)} />
+				<Input type="text" name="tenXTotal" value={tenX(total(numSheep, numGoats))} label="Ten times total animals" />
 
 				<Button text="Submit" type="submit" variant="outlined" style={{ margin: '1em auto' }} />
 			</Box>
