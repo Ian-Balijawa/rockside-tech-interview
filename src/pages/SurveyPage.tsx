@@ -1,9 +1,14 @@
+import { Fragment, useEffect } from 'react'
+
 import Container from '@mui/material/Container'
 import CssBaseline from '@mui/material/CssBaseline'
-import { Fragment } from 'react'
 import Survey from '../features/Survey/Survey'
 
 function SurveyContainer() {
+	useEffect(() => {
+		document.title = 'Survey'
+	}, [])
+
 	return (
 		<Fragment>
 			<CssBaseline />

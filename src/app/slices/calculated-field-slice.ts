@@ -42,8 +42,7 @@ export const calculatedFieldSlice = createSlice({
 		},
 		submit: (state, action: PayloadAction<FormData>) => {
 			const { payload } = action
-			const value = state
-			alert(JSON.stringify({ value, ...payload }, null, 2))
+			alert(JSON.stringify({ payload }, null, 2))
 		},
 	},
 })

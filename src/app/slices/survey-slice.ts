@@ -1,19 +1,12 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
+import type { Level } from '../../types'
 import { RootState } from '../store'
 
-interface Measurements {
-	excellent: boolean
-	good: boolean
-	average: boolean
-	poor: boolean
-	terrible: boolean
-}
-
 interface SurveyStateValue {
-	englishLevel: Measurements
-	technicalAnalysis: Measurements
-	workableWith: Measurements
+	englishLevel: Level | null
+	technicalAnalysis: Level | null
+	workableWith: Level | null
 }
 
 export interface SurveyState {
@@ -23,27 +16,9 @@ export interface SurveyState {
 
 const initialState: SurveyState = {
 	value: {
-		englishLevel: {
-			excellent: false,
-			good: false,
-			average: false,
-			poor: false,
-			terrible: false,
-		},
-		technicalAnalysis: {
-			excellent: false,
-			good: false,
-			average: false,
-			poor: false,
-			terrible: false,
-		},
-		workableWith: {
-			excellent: false,
-			good: false,
-			average: false,
-			poor: false,
-			terrible: false,
-		},
+		englishLevel: null,
+		technicalAnalysis: null,
+		workableWith: null,
 	},
 	status: 'idle',
 }
@@ -52,13 +27,13 @@ export const surveySlice = createSlice({
 	name: 'Survey',
 	initialState,
 	reducers: {
-		setEnglishLevel: (state, action: PayloadAction<Measurements>) => {
+		setEnglishLevel: (state, action: PayloadAction<Level>) => {
 			state.value.englishLevel = action.payload
 		},
-		setTechnicalAnalysis: (state, action: PayloadAction<Measurements>) => {
+		setTechnicalAnalysis: (state, action: PayloadAction<Level>) => {
 			state.value.technicalAnalysis = action.payload
 		},
-		setWorkableWith: (state, action: PayloadAction<Measurements>) => {
+		setWorkableWith: (state, action: PayloadAction<Level>) => {
 			state.value.workableWith = action.payload
 		},
 		submit: (state, action: PayloadAction<SurveyStateValue>) => {
