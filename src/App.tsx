@@ -11,15 +11,11 @@ const AppRouter = createBrowserRouter([
 		element: <Home />,
 	},
 	{
-		path: 'calculated-field-usestate',
-		element: <CalculatedFieldUseState />,
-	},
-	{
-		path: 'calculated-field-redux',
+		path: '/calculative-field',
 		element: <CalculatedFieldRedux />,
 	},
 	{
-		path: 'survey',
+		path: '/survey',
 		element: <SurveyPage />,
 	},
 	{

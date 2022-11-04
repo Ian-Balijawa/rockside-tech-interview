@@ -5,7 +5,7 @@ function Home() {
 		document.title = 'Home'
 	}, [])
 
-	return <h1>RockSide</h1>
+	return <h1 style={{ textAlign: 'center' }}>RockSide</h1>
 }
 
 export default Home
