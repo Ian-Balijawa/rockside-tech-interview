@@ -2,12 +2,12 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function NotFound() {
-	const navigate = useNavigate()
+	const navigator = useNavigate()
 
 	useEffect(() => {
 		document.title = 'Not Found'
 		setTimeout(() => {
-			navigate('/')
+			navigator('/')
 		}, 3000)
 	}, [])
 

@@ -34,11 +34,13 @@ export const calculatedFieldSlice = createSlice({
 		calculateTotal: state => {
 			state.value.total = state.value.sheepCount + state.value.goatCount
 		},
-		setNumberOfSheep: (state, action: PayloadAction<number>) => {
-			state.value.sheepCount = action.payload
+		setNumberOfSheep: (state, action: PayloadAction<string>) => {
+			const num = !Number.isNaN(action.payload) ? Number(action.payload) : 0
+			state.value.sheepCount = num
 		},
-		setNumberOfGoats: (state, action: PayloadAction<number>) => {
-			state.value.goatCount = action.payload
+		setNumberOfGoats: (state, action: PayloadAction<string>) => {
+			const num = !Number.isNaN(action.payload) ? Number(action.payload) : 0
+			state.value.goatCount = num
 		},
 		submit: (state, action: PayloadAction<FormData>) => {
 			const { payload } = action
